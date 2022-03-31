@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% set active_page = page_type %}
+{% block content %}
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <p class="lead">This is the {{ page_type }} page! You can only see this page if you are <a href="/login/">logged in</a>.</p>
+        </div>
+    </div>
+
+{% endblock %}

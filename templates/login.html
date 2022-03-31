@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+{% set active_page = "" %}
+{% block content %}
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4 text-center">Login Page</h1>
+        <p class="lead">Log in with your account.</p>
+    </div>
+</div>
+
+
+<div class="container">
+    <form action="./login" method="post">
+        <div class="form-group">
+            <label for="sign_up_email">Email adres:</label>
+            <input required type="email" class="form-control" id="login_email" name=email aria-describedby="emailHelp">
+        </div>
+        <div class="form-group">
+            <label for="login_password">Wachtwoord:</label>
+            <div class="input-group">
+                <input required type="password" class="form-control" id="login_password" name="password" maxlength="32">
+                <button type="button" id="hidePasswordButton" onclick="showPassword()" class="">🙉</button>
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Log in</button>
+    </form>
+    <p class="mt-3">Heb je nog geen account? <a href="/sign_up">Dan kan je die hier maken.</a><p>
+</div>
+
+<script>
+    function showPassword() {
+        var x = document.getElementById("login_password");
+        var y = document.getElementById("hidePasswordButton").firstChild;
+        if (x.type === "password") {
+            x.type = "text";
+        } else {
+            x.type = "password";
+        }
+        y.data = y.data === "🙈" ? "🙉" : "🙈";
+    }
+</script>
+
+{% endblock %}
